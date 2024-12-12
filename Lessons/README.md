@@ -1,1 +1,0 @@
-Learning Basic of TypeScript
