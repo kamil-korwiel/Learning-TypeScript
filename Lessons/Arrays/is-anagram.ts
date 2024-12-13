@@ -1,5 +1,5 @@
 let s = "racecar"; 
-let t = "carrace";
+let t = "caraace";
 
 function isAnagramSort(s:String, t:String){
     let tot = t.split("").sort();
@@ -12,7 +12,7 @@ function isAnagramSort(s:String, t:String){
 }
 
 // TODO Need to debug  
-function isAnagramHashMap(s:String, t:String){
+export function isAnagramHashMap(s:String, t:String){
     const hashmap: Map<String,number> = new Map();
     const length_s = s.length 
     const length_t = t.length 
@@ -23,7 +23,7 @@ function isAnagramHashMap(s:String, t:String){
         if (hashmap.has(s[i])) {
             let num:number = hashmap.get(s[i])!;
             // console.log("s{ " + s[i] + " : " + num +" }")
-            hashmap.set(s[i],num++);
+            hashmap.set(s[i],num+1);
         }else{
             hashmap.set(s[i],1)
             // console.log("ss{ " + s[i]+ " " + 1 + " }")
@@ -31,7 +31,7 @@ function isAnagramHashMap(s:String, t:String){
         if (hashmap.has(t[i])) {
             let num:number = hashmap.get(t[i])!;
             // console.log("t{ " + t[i] + " : " + num +" }")
-            hashmap.set(t[i],num--);
+            hashmap.set(t[i],num-1);
 
         }else{
             hashmap.set(t[i],-1)
@@ -39,11 +39,10 @@ function isAnagramHashMap(s:String, t:String){
         }
     }
     console.log("")
-    for (const [ _, v ] of hashmap){
-        console.log(v)
-        // if (v !== 0) {
-        //     return false
-        // }
+    for (const value of hashmap.values()){
+        if (value !== 0) {
+            return false
+        }
     }
     // return true
     

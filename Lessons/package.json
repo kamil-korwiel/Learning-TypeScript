@@ -1,5 +1,14 @@
 {
+  "name": "vscode-typescript-debugging",
+  "version": "1.0.0",
   "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.2"
+  },
+  "scripts": {
+    "start": "node out/app.js",
+    "prestart": "npm run build",
+    "build": "tsc"
   }
 }
